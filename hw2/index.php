@@ -58,14 +58,24 @@
 
         $sql_query = "SELECT * FROM ratings WHERE username = ('$s_name')";
         $result = mysqli_query($conn, $sql_query);
+
+        if(!mysqli_num_rows($result)==0){
        
-        while($row = mysqli_fetch_assoc($result)){
-          $out_value = $out_value.
-          'Song: ' . $row['song'] . ' Rating: ' . $row['rating']."<br><br>";
-        }  
+          while($row = mysqli_fetch_assoc($result)){
+            $out_value = $out_value.
+            'Song: ' . $row['song'] . ' Rating: ' . $row['rating']."<br><br>";
+          }  
+
+        } 
+        
+        else{
+          $out_value = 'There are no ratings for this user!';
+
+        }
+
       }
       else{
-        $out_value = 'No ratings for this user.';
+        $out_value = 'Please insert a username!';
       }
 
     }
