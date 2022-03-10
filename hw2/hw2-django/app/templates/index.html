@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<body>
+
+    {% include './messages.html' %}
+    <h1>Register!</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ UserForm }}
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1>Look up Ratings!</h1>
+    <form method="get">
+        {% csrf_token %}
+        {{ RatingForm }}
+        <input type="submit" value="Retrieve">
+        {% if ratings %}
+        <table>
+            {% for rating in ratings %}
+            <tr>
+                <td>{{rating.str}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </form>
+
+    <!-- <h1>Look up Albums!</h1>
+    <form method="get">
+        {% csrf_token %}
+        {{ AlbumForm }}
+        <input type="submit" value="Search">
+        {% if album %}
+        <table>
+            Hello
+            <th>album.name</th>
+             <th>album.releaseDate</th> 
+            {% for song in album.songs %}
+            <tr>
+                <td>song</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </form>
+     -->
+
+</body>
+</html>
