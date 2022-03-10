@@ -5,12 +5,16 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-  <!-- This is the default encoding type for the Html Form post submission. 
-  Encoding type tells the browser how the form data should be encoded before 
-  sending the form data to the server. 
-  https://www.logicbig.com/quick-info/http/application_x-www-form-urlencoded.html-->
-<meta http-equiv="Content-Type" content="application/x-www-form-urlencoded"/>
-<title>Registration & Lookup Form</title>
+    <!-- This is the default encoding type for the Html Form post submission. 
+    Encoding type tells the browser how the form data should be encoded before 
+    sending the form data to the server. 
+    https://www.logicbig.com/quick-info/http/application_x-www-form-urlencoded.html-->
+    <meta http-equiv="Content-Type" content="application/x-www-form-urlencoded"/>
+    <title>Registration & Lookup Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -30,14 +34,15 @@
 
 
     $out_value = "";
-    $s_name = $_REQUEST['username'];
-    $s_pass = $_REQUEST['password'];
 
     if(!empty($_POST['register'])){
-      if(!empty($s_name) && !empty($s_name)){
+      $s_uname = $_REQUEST['username'];
+      $s_pass = $_REQUEST['password'];
+
+      if(!empty($s_uname) && !empty($s_pass)){
 
         $sql_query = "INSERT INTO users (username, password) VALUES 
-                          ('$s_name', '$s_pass')";
+                          ('$s_uname', '$s_pass')";
 
         if ($conn->query($sql_query) === TRUE) {
             echo "New record created successfully";
@@ -47,6 +52,7 @@
       }
     }
     if(!empty($_GET['retrieve'])){
+      $s_name = $_REQUEST['name'];
 
       if(!empty($s_name)){
 
@@ -55,7 +61,7 @@
        
         while($row = mysqli_fetch_assoc($result)){
           $out_value = $out_value.
-          'Song: ' . $row['song'] . ' Rating: ' . $row['rating']."\r\n";
+          'Song: ' . $row['song'] . ' Rating: ' . $row['rating']."<br><br>";
         }  
       }
       else{
@@ -69,25 +75,32 @@
   <!-- 
     Form for registering a user.
   -->
-  <h1>Registration</h1>
-  <form method="POST" action="">
-  Username: <input type="text" name="username" placeholder="Enter your email" /><br>
-  Password: <input type="text" name="password" placeholder="Enter a password" /><br>
-  <input type="submit" name="register" value="Register"/>
-  </form>
 
-  <!-- Form for song retrieval -->
-  <h1>Song Retrieval</h2>
-  <form method="GET" action="">
-  Username: <input type="text" name="username" placeholder="Enter the username" /><br>
-  <input type="submit" name="retrieve" value="Retrieve"/> 
-  </form>
+  <div class="content">
+    <h1 id="pagetitle">music-db</h1>
+
+    <h1>Registration</h1>
+    <form method="POST" action="">
+    Username: <input type="text" name="username" placeholder="Enter your username" /><br>
+    Password: <input type="text" name="password" placeholder="Enter a password" /><br>
+    <br>
+    <input type="submit" name="register" value="Register"/>
+    </form>
+
+    <!-- Form for song retrieval -->
+    <h1> Song Retrieval</h1>
+    <form method="GET" action="">
+    Username: <input type="text" name="name" placeholder="Enter the username" /><br>
+    <br>
+    <input type="submit" name="retrieve" value="Retrieve"/> 
+    </form>
 
   <p><?php 
     if(!empty($out_value)){
       echo $out_value;
     }
   ?></p>
+  </div>
   
 </body>
 </html>
