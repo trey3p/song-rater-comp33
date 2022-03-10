@@ -1,5 +1,10 @@
+## Instructions
 
-Users Table
+**1. Create a new database in phpMyAdmin called music-db.**
+
+**2. Please run the below SQL queries under music-db, one table at a time, in order. So you would run the Users code, then Artists, then Ratings**
+
+## Users Table
 
 CREATE TABLE users(
     username VARCHAR(255) PRIMARY KEY,
@@ -12,7 +17,21 @@ INSERT INTO users (username, password)
 INSERT INTO users (username, password)
 	VALUES ("Otto", "StarWars2*");
 
-Ratings Table
+## Artists Table
+
+CREATE TABLE artists (song VARCHAR(255) PRIMARY KEY,
+                      artist VARCHAR(255));
+
+INSERT INTO artists (song, artist)
+    VALUES ("Freeway", "Aimee Mann");
+
+INSERT INTO artists (song, artist)
+    VALUES ("Days of Wine and Roses", "Bill Evans");
+
+INSERT INTO artists (song, artist)
+    VALUES ("These Walls", "Kendrick Lamar");
+
+## Ratings Table
 
 CREATE TABLE ratings (id INTEGER(1) PRIMARY KEY AUTO_INCREMENT,
                       username VARCHAR(255),
@@ -34,9 +53,9 @@ INSERT INTO ratings (username, song, rating)
 
 ALTER TABLE `ratings` ADD INDEX(`username`);
 
-ALTER TABLE `ratings` ADD FOREIGN KEY (`username`) REFERENCES `users`(`username`) ON DELETE CASCADE ON UPDATE RESTRICT
+ALTER TABLE `ratings` ADD FOREIGN KEY (`username`) REFERENCES `users`(`username`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
-Artists Table
+ALTER TABLE `ratings` ADD INDEX(`song`);
 
-CREATE TABLE artists (song VARCHAR(255) PRIMARY KEY,
-                      artist VARCHAR(255));
+ALTER TABLE `ratings` ADD FOREIGN KEY (`song`) REFERENCES `artists`(`song`) ON DELETE CASCADE ON UPDATE RESTRICT;
+
