@@ -24,11 +24,12 @@ def homepage(request):
             user = form.save()
             messages.success(request, "Registration successful!")
             return render(request, 'index.html', {'UserForm': UserForm, 
-                                        'RatingForm': RatingForm})
+                                        'RatingForm': RatingForm,
+                                        'AlbumForm': AlbumForm})
 
         messages.error(request, 'Registration unsuccessful.')
-    # if a GET (or any other method) we'll create a blank form
-    elif request.method == 'GET':
+    
+    elif request.method == 'GET' and 'Retrieve' in request.GET:
         form = RatingForm(request.GET)
 
         if form.is_valid():
@@ -37,9 +38,28 @@ def homepage(request):
 
             return render(request, 'index.html', {'UserForm': UserForm,
                                                 'RatingForm': RatingForm,
+                                                'AlbumForm': AlbumForm,
                                                 'ratings': ratings})
+
+    elif request.method == 'GET' and 'Search' in request.GET:
+        form = AlbumForm(request.GET)
+        messages.success(request, 'In search!')
+
+        if form.is_valid():
+            messages.success(request, 'Search successful!')
+            albums = Album.objects.filter(name = form.cleaned_data.get('albumName'))
+
+            return render(request, 'index.html', {'UserForm': UserForm, 
+                                        'RatingForm': RatingForm,
+                                        'AlbumForm': AlbumForm,
+                                        'albums': albums})
+
 
 
 
     return render(request, 'index.html', {'UserForm': UserForm, 
-                                        'RatingForm': RatingForm})
+                                        'RatingForm': RatingForm,
+                                        'AlbumForm': AlbumForm})
+
+
+

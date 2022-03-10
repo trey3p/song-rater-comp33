@@ -16,8 +16,6 @@ class RatingForm(forms.Form):
     user = forms.CharField(label = 'User', max_length=255)
 
 
-class AlbumForm(ModelForm):
-    class Meta:
-        model = Album
-        fields = ['name']
+class AlbumForm(forms.Form):
+    albumName = forms.CharField(label = 'Album Name', max_length = 255)
 

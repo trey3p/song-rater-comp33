@@ -32,11 +32,15 @@ class Rating(models.Model):
 class Album(models.Model):
     name = models.CharField(max_length = 255, primary_key = True)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    songs = models.JSONField(default = list)
+    songs = models.JSONField(default = list[str])
     releaseDate = models.DateField()
 
     def str(self):
-        return '%s by %s was released on %s' % (self.name, 
+        s =''
+        for song in self.songs:
+            s += song + '\n'
+
+        return '%s by %s was released on %s.' % (self.name, 
                                                 self.artist.strArtist(),
                                                 self.releaseDate)
 
