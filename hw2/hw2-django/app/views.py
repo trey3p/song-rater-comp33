@@ -26,8 +26,9 @@ def homepage(request):
             return render(request, 'index.html', {'UserForm': UserForm, 
                                         'RatingForm': RatingForm,
                                         'AlbumForm': AlbumForm})
+        else:
 
-        messages.error(request, 'Registration unsuccessful.')
+            messages.error(request, 'Registration unsuccessful.')
     
     elif request.method == 'GET' and 'Retrieve' in request.GET:
         form = RatingForm(request.GET)
@@ -35,24 +36,41 @@ def homepage(request):
         if form.is_valid():
             
             ratings = Rating.objects.filter(username = form.cleaned_data.get('user'))
-
-            return render(request, 'index.html', {'UserForm': UserForm,
+            
+            if ratings:
+                return render(request, 'index.html', {'UserForm': UserForm,
                                                 'RatingForm': RatingForm,
                                                 'AlbumForm': AlbumForm,
                                                 'ratings': ratings})
+            else:
+
+                messages.error(request, 'Retrieval unsuccesful, invalid information!')
+        else:
+
+                messages.error(request, 'Retrieval unsuccesful, invalid information!')
+
 
     elif request.method == 'GET' and 'Search' in request.GET:
         form = AlbumForm(request.GET)
-        messages.success(request, 'In search!')
 
         if form.is_valid():
-            messages.success(request, 'Search successful!')
+
             albums = Album.objects.filter(name = form.cleaned_data.get('albumName'))
 
-            return render(request, 'index.html', {'UserForm': UserForm, 
+            if albums:
+                return render(request, 'index.html', {'UserForm': UserForm, 
                                         'RatingForm': RatingForm,
                                         'AlbumForm': AlbumForm,
                                         'albums': albums})
+
+            else:
+
+                messages.error(request, 'Search unsuccessful, invalid information!')
+        else:
+
+                messages.error(request, 'Search unsuccessful, invalid information!')
+
+       
 
 
 
