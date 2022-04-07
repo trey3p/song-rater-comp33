@@ -1,25 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
+// Import the CustomModal that we created in Modal.js.
+import Rm from "./components/Container"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import axios from "axios";
+
+
+class App extends React.Component {
+  // Here comes our constructor.
+  constructor(props) {
+    super(props);
+    // The state object is initialized in the constructor of the component.
+    // It has three properties, which we initialize:
+    // viewCompleted (Boolean)
+    // activeItem (object)
+    // todoList (array).
+    this.state = {
+     
+    };
+  }
+
+  render () 
+  {
+    return (
+      <div>
+        <Rm></Rm>
+      </ div>
+    );
+  }
+
 }
 
+// Export our App so that it can be rendered in index.js, where it is imported.
 export default App;
