@@ -19,6 +19,9 @@ class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = ('id', 'username', 'song', 'rating', 'review')
+   
+  
+   
 
 class AlbumSerializer(serializers.ModelSerializer):
     class Meta:
