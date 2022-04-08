@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Ratings from "./components/Ratings"
 import {useState, useEffect} from 'react';
 
-
+import 'font-awesome/css/font-awesome.min.css'
 
 function App () {
 

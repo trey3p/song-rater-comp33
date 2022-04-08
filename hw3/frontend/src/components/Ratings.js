@@ -145,12 +145,12 @@ const Ratings = ({ onAdd }) => {
                                             <td> {rating.username}</td>
                                             <td>
                                                 <i
-                                                    className = "fa fa-pencil-square text-primary d-inline"
+                                                    className = "fa fa-pencil-square"
                                                     aria-hidden = "true"
                                                     onClick = {() => selectRating(rating.id)}
                                                 ></i>
                                                 <i
-                                                    className="fa fa-trash-o text-danger d-inline mx-3"
+                                                    className="fa fa-trash"
                                                     aria-hidden="true"
                                                     onClick={() => onDelete(rating.id)}
                                                 ></i>
