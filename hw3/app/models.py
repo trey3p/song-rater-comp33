@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 class User(models.Model):
@@ -21,7 +21,7 @@ class Artist(models.Model):
 class Rating(models.Model):
     username = models.CharField(max_length = 255)
     song = models.CharField(max_length = 255)
-    rating = models.IntegerField()
+    rating = models.IntegerField(validators= [MaxValueValidator(5),MinValueValidator(0)])
     review = models.CharField(max_length = 1000, default = str)
 
     def str(self):
