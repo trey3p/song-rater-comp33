@@ -184,7 +184,7 @@ const Ratings = ({ onAdd }) => {
                                             <td> {rating.song}</td>
                                             <td> {rating.review}</td>
                                             <td> {rating.rating}</td>
-                                            <td>{avgRating(rating.song)}</td>
+                                            <td>{Math.round(avgRating(rating.song))}</td>
                                             <td> {rating.username}</td>
                                             <td>
                                                 <i
