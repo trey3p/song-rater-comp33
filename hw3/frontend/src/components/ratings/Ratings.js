@@ -12,6 +12,7 @@ const Ratings = ({ onAdd }) => {
     const [review, setReview] = useState(0);
     const [songId, setSongId] = useState(null);
     const [ratings, setRatings] = useState([]);
+    const [isDisabled, setDisabled] = useState(true);
 
 
     const avgRating = (song) => {
@@ -79,6 +80,16 @@ const Ratings = ({ onAdd }) => {
     const onDelete = (id) => {
 
         API.delete(`api/ratings/${id}`).then((res) => refreshRatings());
+    }
+
+    const handleEditSubmit = () => {
+        console.log('The edit button was clicked and now the update button is enabled')
+        setDisabled(false);
+    }
+
+    const handleUpdateSubmit = () => {
+        console.log('The update button was clicked and now the update button is disabled')
+        setDisabled(true);
     }
 
     function selectRating(id)
@@ -155,8 +166,12 @@ const Ratings = ({ onAdd }) => {
                             <Button
                                 variant = "primary"
                                 type = "button"
-                                onClick = {() => onUpdate(songId)}
+                                onClick = {() => {
+                                    onUpdate(songId);
+                                    handleUpdateSubmit();
+                                }}
                                 className = "mx-2"
+                                disabled={isDisabled}
                             >
                                 Update
                             </Button>
@@ -190,7 +205,10 @@ const Ratings = ({ onAdd }) => {
                                                 <i
                                                     className = "fa fa-pencil-square"
                                                     aria-hidden = "true"
-                                                    onClick = {() => selectRating(rating.id)}
+                                                    onClick = {() => {
+                                                        selectRating(rating.id);
+                                                        handleEditSubmit();
+                                                    }}
                                                 ></i>
                                                 <i
                                                     className="fa fa-trash"

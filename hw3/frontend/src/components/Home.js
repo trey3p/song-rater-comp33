@@ -6,16 +6,13 @@ class Home extends Component {
   render() {
     return (
       <Container>
-        <h1>Home</h1>
-        <p>
+        <h1 id="pagetitle">Home</h1>
+        <h1>
           <Link to="/login/">Login</Link>
-        </p>
-        <p>
+        </h1>
+        <h1>
           <Link to="/signup">Sign up</Link>
-        </p>
-        <p>
-          <Link to="/dashboard">Ratings</Link>
-        </p>
+        </h1>
       </Container>
     );
   }

@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
     padding:0;
     border:0;
     outline:0;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: #B89AA0;
+    background-color: black;
 }
 
 #pagetitle {
@@ -32,7 +33,7 @@ body {
 }
 
 h1 {
-    color:#F4ECDB;
+    color:black;
     padding: 18px;
 }
 
