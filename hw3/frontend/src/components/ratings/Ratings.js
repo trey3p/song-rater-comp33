@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ListGroup, Card, Button, Form} from "react-bootstrap";
+import { toast } from "react-toastify";
 import API from "../../API";
 
 const Ratings = ({ onAdd }) => {
@@ -28,12 +29,28 @@ const Ratings = ({ onAdd }) => {
         e.preventDefault();
 
         let item = {username, rating, song, review}
-        API.post("api/ratings/", item).then(() => refreshRatings());
+        ratings.find((element) => {if (element.username === username && element.song === song){
+            toast.error("Cannot rate this song again!");
+        }
+        else
+        {
+            API.post("api/ratings/", item).then(() => refreshRatings());
+        }
+    })
+        
     };
 
     const onUpdate = (id) => {
-        let item = {song, rating, review}
-        API.patch(`api/ratings/${id}/`, item).then((res) => refreshRatings());
+
+        let item = {username, song, rating, review}
+
+        ratings.find((element) => {if (element.username === username && element.song === song){
+            API.patch(`api/ratings/${id}/`, item).then((res) => refreshRatings());
+        }
+        else{
+            toast.error("Not a rating!");
+        }})
+        
     }
 
     const onDelete = (id) => {
