@@ -56,6 +56,7 @@ const Ratings = ({ onAdd }) => {
             <div className = "container mt-5">
                 <div className = "row">
                     <div className = "col-dm-4">
+                        <h1 id = "pagetitle" class = "center">Song Rater</h1>
                         <h3 className = "float-left">Create a new Rating</h3>
                         <Form onSubmit={onSubmit} className = "mt-4">
                             <Form.Group className="mb-3" controlId="formBasicName">
