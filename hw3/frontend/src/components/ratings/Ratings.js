@@ -55,7 +55,7 @@ const Ratings = ({ onAdd }) => {
         }
         else
         {
-            API.post("api/ratings/", item).then(() => refreshRatings()).catch(error => toastOnError(error));
+            API.post("api/ratings/", item).then(() => refreshRatings()).catch(error => toast.error("Every field is required, and ratings must be a number out of 5."));
         }
         
         
