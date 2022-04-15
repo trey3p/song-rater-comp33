@@ -13,6 +13,7 @@ the hw3 folder (one level below song-rater-comp33), not the whole song-rater-com
 - leave BOTH the backend and frontend terminals running
 - you must create an account to use the ratings functionality and will be redirected to login, until you do
 - create an account by clicking on sign up
+- if for some reason signing up says "invalid tokens" please clear your browser cookies and try again
 - now login
 - now navigate to ratings and play around, you can edit ratings by clicking the pencil icon,
 - delete is by clicking the trash can

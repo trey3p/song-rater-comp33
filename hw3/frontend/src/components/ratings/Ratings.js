@@ -146,7 +146,7 @@ const Ratings = ({ onAdd }) => {
                                 <Form.Label>Rating</Form.Label>
                                 <Form.Control 
                                     type = "text"
-                                    placeholder = "Enter your Rating"
+                                    placeholder = "Enter your Rating (values from 1 - 5 only)"
                                     value = {rating}
                                     onChange= {(e) => setRating(e.target.value)}
                                 />
