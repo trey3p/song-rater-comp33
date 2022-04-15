@@ -64,7 +64,7 @@ const Ratings = ({ onAdd }) => {
     const onUpdate = (id) => {
 
         let item = {song, rating, review}
-        let match = ratings.find(element => element.username === username && element.song === song)
+        let match = ratings.find(element => element.username === username && element.id === id)
 
         if (match)
         {
