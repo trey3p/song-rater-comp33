@@ -7,25 +7,42 @@ import { toastOnError } from "../../utils/Utils";
 const Ratings = ({ onAdd }) => {
 
     const [username, setUsername] = useState("");
-    const [rating, setRating] = useState("");
+    const [rating, setRating] = useState();
     const [song, setSong] = useState("");
-    const [review, setReview] = useState("");
+    const [review, setReview] = useState(0);
     const [songId, setSongId] = useState(null);
     const [ratings, setRatings] = useState([]);
+
+
+    const avgRating = (song) => {
+        let items = ratings.filter((rating) => rating.song === song);
+        var avg = 0;
+        items.forEach(item => {
+            avg += item.rating
+
+            console.log(item.rating)
+            }
+            );
+        
+        console.log(avg);
+        return avg/items.length
+    };
+
 
     useEffect(() =>
     {
         refreshRatings();
     }, []);
 
-    const refreshRatings = () =>
+    const refreshRatings = () => {
 
         API.get("api/ratings/")
             .then((res) => {
                 setRatings(res.data);
             })
+    
             .catch(console.error);
-
+    }
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -51,7 +68,7 @@ const Ratings = ({ onAdd }) => {
 
         if (match)
         {
-            API.patch(`api/ratings/${match.id}/`, item).then((res) => refreshRatings()).catch(error => toastOnError(error));;
+            API.patch(`api/ratings/${match.id}/`, item).then((res) => refreshRatings()).catch(error => toastOnError(error));
         }
         else{
             toast.error("No existing rating!")
@@ -154,6 +171,7 @@ const Ratings = ({ onAdd }) => {
                                     <th scope = "col">Song Name</th>
                                     <th scope = "col">Review</th>
                                     <th scope = "col">Rating</th>
+                                    <th scope = "col">Avg. Rating</th>
                                     <th scope = "col">Reviewer</th>
                                     <th scope = "col"></th>
                                 </tr>
@@ -166,6 +184,7 @@ const Ratings = ({ onAdd }) => {
                                             <td> {rating.song}</td>
                                             <td> {rating.review}</td>
                                             <td> {rating.rating}</td>
+                                            <td>{avgRating(rating.song)}</td>
                                             <td> {rating.username}</td>
                                             <td>
                                                 <i
