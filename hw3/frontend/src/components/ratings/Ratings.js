@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ListGroup, Card, Button, Form} from "react-bootstrap";
 import { toast } from "react-toastify";
 import API from "../../API";
+import { toastOnError } from "../../utils/Utils";
 
 const Ratings = ({ onAdd }) => {
 
@@ -29,27 +30,32 @@ const Ratings = ({ onAdd }) => {
         e.preventDefault();
 
         let item = {username, rating, song, review}
-        ratings.find((element) => {if (element.username === username && element.song === song){
-            toast.error("Cannot rate this song again!");
+        let match = ratings.find(element => element.username === username && element.song === song)
+        if (match)
+        {
+            toast.error("You cannot double rate!")
+            
         }
         else
         {
-            API.post("api/ratings/", item).then(() => refreshRatings());
+            API.post("api/ratings/", item).then(() => refreshRatings()).catch(error => toastOnError(error));
         }
-    })
+        
         
     };
 
     const onUpdate = (id) => {
 
-        let item = {username, song, rating, review}
+        let item = {song, rating, review}
+        let match = ratings.find(element => element.username === username && element.song === song)
 
-        ratings.find((element) => {if (element.username === username && element.song === song){
-            API.patch(`api/ratings/${id}/`, item).then((res) => refreshRatings());
+        if (match)
+        {
+            API.patch(`api/ratings/${match.id}/`, item).then((res) => refreshRatings()).catch(error => toastOnError(error));;
         }
         else{
-            toast.error("Not a rating!");
-        }})
+            toast.error("No existing rating!")
+        }
         
     }
 
