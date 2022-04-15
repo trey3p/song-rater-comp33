@@ -1,0 +1,198 @@
+[33mcommit 6264a32ecd368916b9e16346fefbed6be2628dff[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Fri Apr 15 02:36:54 2022 -0400
+
+    cleaned database
+
+[33mcommit aee64aa7a76f4dac1d818186f20547a8c67b46cd[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Fri Apr 15 02:36:02 2022 -0400
+
+    added readme
+
+[33mcommit 727bcad52e83d4c9c930332278fe4406074600da[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Fri Apr 15 02:10:59 2022 -0400
+
+    changed average rounding and cleaned db
+
+[33mcommit 1e1b2c91accf1113d64059f92f7e63370d548e2b[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Fri Apr 15 01:51:04 2022 -0400
+
+    avg working
+
+[33mcommit fc2cbbbe358200012cf89d7762008f425b52e147[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Fri Apr 15 01:26:28 2022 -0400
+
+    fixed duplication ratings
+
+[33mcommit 305b3b6bc8f9c7f9a9e0ae7d4769fa53104d9de5[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Fri Apr 15 01:03:53 2022 -0400
+
+    pls be done
+
+[33mcommit 93677990267e58bcb67eeafe7bc03d3776e7b492[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Fri Apr 15 00:06:23 2022 -0400
+
+    changed css and updated Ratings.js
+
+[33mcommit 46567beb03bcb78437a077696ee8c0af246901d0[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Apr 14 23:52:38 2022 -0400
+
+    Ratings only go up to 5
+
+[33mcommit 26f8b42f8a052ac2da8fc85212046c96fb8ed58e[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Apr 14 22:17:18 2022 -0400
+
+    Setup API and react-app with bootstrap.
+
+[33mcommit 904ce92d5f662e4332527014c63ee505f10b84e0[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Apr 14 14:19:18 2022 -0400
+
+    added .gitignore
+
+[33mcommit b67e85e5f11fe6b951d048411178be61eb2a3e38[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Apr 7 22:15:45 2022 -0400
+
+    Delete and edit icons now working, CRUD working for ratings
+
+[33mcommit 5eb02f9be56e53be9a88ca6377d09ac680669f6a[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Apr 7 22:03:47 2022 -0400
+
+    Create, read, and update working for ratings.
+
+[33mcommit 8b5d476851a313617e20745934bcd72362e5c48f[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Apr 7 14:00:31 2022 -0400
+
+    React site working.
+
+[33mcommit 6063ff63cabedff0280d5727d9882d0c6b16ae0c[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Wed Apr 6 11:16:11 2022 -0400
+
+    Setup API and react-app with bootstrap.
+
+[33mcommit 5435013013bd205f771279a1af64b39c0e6d3d92[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Fri Mar 11 03:39:25 2022 -0500
+
+    updated readme-django.md
+
+[33mcommit 2b5283ccc6fc05d648ff8b6b59ce2409ab5304cf[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Fri Mar 11 03:14:33 2022 -0500
+
+    added README.md at root
+
+[33mcommit 6624745179b020f25d2ff00c2b2962daf28bac7b[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Fri Mar 11 03:12:56 2022 -0500
+
+    added README at root
+
+[33mcommit 2d9d8b2cfd645c1a61f6fa6ddb8215bc91f089a7[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Fri Mar 11 03:09:39 2022 -0500
+
+    added CSS functionality, updated readme-django.md
+
+[33mcommit 05e736209fb532d7449d78352aacf294322917b1[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 23:07:44 2022 -0500
+
+    modified file structure
+
+[33mcommit a4b18f1df510e6cf1dad7bb0624a54af7d7c1f7f[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 20:07:06 2022 -0500
+
+    deleted landing page from homework1 files
+
+[33mcommit 4b85437a7f2f13758d25892c0ba19c98b04516c4[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Mar 10 19:52:01 2022 -0500
+
+    Fixed error messages for django.
+
+[33mcommit 16864ab2bae2386a2c6df02a709b64164b0408a3[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 19:40:28 2022 -0500
+
+    changed file structure for ease of use
+
+[33mcommit c9782cd8090d63b7335eacd2bf54eac6925ce794[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Mar 10 19:17:51 2022 -0500
+
+    Copied database entried from question 1 into database.
+
+[33mcommit 10c834838082b611fe6b4db526b7037f8e1c8e45[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Mar 10 19:03:04 2022 -0500
+
+    Removed name form.
+
+[33mcommit 04dd53ac61884cc689f8fe27d3dee2921a8bd97c[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Mar 10 18:44:28 2022 -0500
+
+    Django (2a and 2b) fully working, added new table albums, and attributes review.
+
+[33mcommit 3804014f581cde74ffbfa95865e49520db4dd908[m
+Merge: fafe963 5422891
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 14:43:49 2022 -0500
+
+    Merge branch 'main' of https://github.com/trey3p/song-rater-comp33
+
+[33mcommit fafe9630f2fdc014eeda725d6cc9a7df5db3eb43[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 14:43:25 2022 -0500
+
+    added 'no ratings for this user' functionality
+
+[33mcommit 5422891179ddde239ba8969bf7a631a5dc9a6fdd[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Mar 10 11:24:55 2022 -0500
+
+    Django 2a finished, 2b not working currently.
+
+[33mcommit ec8844d57a216325404d8b22ca44f59cc80e119f[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 06:18:39 2022 -0500
+
+    modified queries
+
+[33mcommit 547daad0a62352db6bd6ca15967349bcc053f23e[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 06:17:48 2022 -0500
+
+    modified html and php
+
+[33mcommit e32b422c19316c0eca73aef0baf16c59843ed738[m
+Author: gunnnerman <gjungpaibul@wesleyan.edu>
+Date:   Thu Mar 10 06:16:59 2022 -0500
+
+    added css stylesheet
+
+[33mcommit 356e605440dc9b3f29c7e9b703c999de8d9e1784[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Thu Mar 3 10:05:39 2022 -0500
+
+    Added index for song retrieval and registration
+
+[33mcommit cd9923c32ed15388aad48778174a5d36737a91c0[m
+Author: Trey Plante <treygp15@gmail.com>
+Date:   Tue Feb 22 10:51:28 2022 -0500
+
+    Added landing-page, and hw2, with 1a completed

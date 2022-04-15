@@ -25,7 +25,7 @@ const Ratings = ({ onAdd }) => {
             );
         
         console.log(avg);
-        return avg/items.length
+        return ((Math.round(avg/items.length * 10) / 10))
     };
 
 
@@ -68,7 +68,7 @@ const Ratings = ({ onAdd }) => {
 
         if (match)
         {
-            API.patch(`api/ratings/${match.id}/`, item).then((res) => refreshRatings()).catch(error => toastOnError(error));
+            API.patch("api/ratings/${match.id}/", item).then((res) => refreshRatings()).catch(error => toastOnError(error));
         }
         else{
             toast.error("No existing rating!")
@@ -99,8 +99,9 @@ const Ratings = ({ onAdd }) => {
                         <h1 id = "pagetitle" class = "center">Song Rater</h1>
                         <h3 className = "float-left">Create a new Rating</h3>
                         <Form onSubmit={onSubmit} className = "mt-4">
+                            <Form.Label>Editing Entry Number: {songId}</Form.Label>
                             <Form.Group className="mb-3" controlId="formBasicName">
-                                <Form.Label>{songId}</Form.Label>
+                                <Form.Label>Name</Form.Label>
                                 <Form.Control
                                     type = "text"
                                     placeholder = "Enter Name"
@@ -135,7 +136,7 @@ const Ratings = ({ onAdd }) => {
                                 <Form.Label>Rating</Form.Label>
                                 <Form.Control 
                                     type = "text"
-                                    placeholder = "Enter your Rating"
+                                    placeholder = "Enter your Rating from 1-5"
                                     value = {rating}
                                     onChange= {(e) => setRating(e.target.value)}
                                 />
@@ -184,7 +185,7 @@ const Ratings = ({ onAdd }) => {
                                             <td> {rating.song}</td>
                                             <td> {rating.review}</td>
                                             <td> {rating.rating}</td>
-                                            <td>{Math.round(avgRating(rating.song))}</td>
+                                            <td>{avgRating(rating.song)}</td>
                                             <td> {rating.username}</td>
                                             <td>
                                                 <i
