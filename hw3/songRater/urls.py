@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from app import views
+from accounts.urls import accounts_urlpatterns
 
 router = routers.DefaultRouter()
 
-router.register(r'users', views.UserView, 'user')
+
 router.register(r'artists', views.ArtistView, 'artist')
 router.register(r'ratings', views.RatingView, 'rating')
 router.register(r'albums', views.AlbumView, 'album')
@@ -31,3 +32,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls))
 ]
+
+urlpatterns+= accounts_urlpatterns

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ListGroup, Card, Button, Form} from "react-bootstrap";
-import API from "../API";
+import API from "../../API";
 
 const Ratings = ({ onAdd }) => {
 
@@ -18,7 +18,7 @@ const Ratings = ({ onAdd }) => {
 
     const refreshRatings = () =>
 
-        API.get("/ratings/")
+        API.get("api/ratings/")
             .then((res) => {
                 setRatings(res.data);
             })
@@ -28,23 +28,23 @@ const Ratings = ({ onAdd }) => {
         e.preventDefault();
 
         let item = {username, rating, song, review}
-        API.post("/ratings/", item).then(() => refreshRatings());
+        API.post("api/ratings/", item).then(() => refreshRatings());
     };
 
     const onUpdate = (id) => {
-        let item = {song}
-        API.patch(`/ratings/${id}/`, item).then((res) => refreshRatings());
+        let item = {song, rating, review}
+        API.patch(`api/ratings/${id}/`, item).then((res) => refreshRatings());
     }
 
     const onDelete = (id) => {
 
-        API.delete(`/ratings/${id}`).then((res) => refreshRatings());
+        API.delete(`api/ratings/${id}`).then((res) => refreshRatings());
     }
 
     function selectRating(id)
     {
         let item = ratings.filter((rating) => rating.id === id)[0];
-        setUsername(item.username);
+        setUsername(username);
         setRating(item.rating);
         setReview(item.review);
         setSong(item.song);
