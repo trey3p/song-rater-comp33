@@ -68,7 +68,7 @@ const Ratings = ({ onAdd }) => {
 
         if (match)
         {
-            API.patch("api/ratings/${match.id}/", item).then((res) => refreshRatings()).catch(error => toastOnError(error));
+            API.post('api/ratings/${match.id}/', item).then((res) => refreshRatings()).catch(error => toastOnError(error));
         }
         else{
             toast.error("No existing rating!")
