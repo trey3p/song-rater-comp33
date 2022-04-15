@@ -41,6 +41,13 @@ p {
     padding:18px;
 }
 
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
 .list ul {
     list-style-type: circle;
     overflow: hidden;

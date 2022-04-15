@@ -6,6 +6,7 @@ class Home extends Component {
   render() {
     return (
       <Container>
+        <h1 id="pagetitle">Song Rater</h1>
         <h1 id="pagetitle">Home</h1>
         <h1>
           <Link to="/login/">Login</Link>
