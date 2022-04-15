@@ -25,7 +25,7 @@ const Ratings = ({ onAdd }) => {
             );
         
         console.log(avg);
-        return avg/items.length
+        return Math.round(avg/items.length * 10) / 10
     };
 
 
@@ -84,7 +84,7 @@ const Ratings = ({ onAdd }) => {
     function selectRating(id)
     {
         let item = ratings.filter((rating) => rating.id === id)[0];
-        setUsername(username);
+        setUsername(item.username);
         setRating(item.rating);
         setReview(item.review);
         setSong(item.song);
@@ -100,7 +100,7 @@ const Ratings = ({ onAdd }) => {
                         <h3 className = "float-left">Create a new Rating</h3>
                         <Form onSubmit={onSubmit} className = "mt-4">
                             <Form.Group className="mb-3" controlId="formBasicName">
-                                <Form.Label>{songId}</Form.Label>
+                                <Form.Label>Name</Form.Label>
                                 <Form.Control
                                     type = "text"
                                     placeholder = "Enter Name"
@@ -184,7 +184,7 @@ const Ratings = ({ onAdd }) => {
                                             <td> {rating.song}</td>
                                             <td> {rating.review}</td>
                                             <td> {rating.rating}</td>
-                                            <td>{Math.round(avgRating(rating.song))}</td>
+                                            <td>{(avgRating(rating.song))}</td>
                                             <td> {rating.username}</td>
                                             <td>
                                                 <i
